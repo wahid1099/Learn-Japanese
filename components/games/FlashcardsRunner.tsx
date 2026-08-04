@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 
 interface Props {
   script: 'hira' | 'kata';
-  deck: 'due' | 'new';
+  deck: 'due' | 'new' | 'all';
 }
 
 export function FlashcardsRunner({ script, deck }: Props) {
@@ -24,6 +24,9 @@ export function FlashcardsRunner({ script, deck }: Props) {
     if (deck === 'new') {
       const have = new Set(cards.map(c => c.id));
       return dataset.filter(c => !have.has(c.id)).slice(0, 10);
+    }
+    if (deck === 'all') {
+      return dataset.slice(0, 10);
     }
     const due = cards.filter(c => c.due <= Date.now());
     return due.map(c => dataset.find(d => d.id === c.id)).filter(Boolean) as typeof dataset;
@@ -83,7 +86,7 @@ export function FlashcardsRunner({ script, deck }: Props) {
   return (
     <div className="container max-w-2xl py-8">
       <div className="flex items-center justify-between mb-3 text-sm text-sumi-500 dark:text-sumi-400">
-        <span>Flashcards · {deck === 'new' ? 'New' : 'Review'}</span>
+        <span>Flashcards · {deck === 'new' ? 'New' : deck === 'all' ? 'All' : 'Review'}</span>
         <span>{Math.min(i, queue.length)} / {queue.length}</span>
       </div>
       <div className="h-1.5 rounded-full bg-sumi-200 dark:bg-sumi-800 overflow-hidden mb-6">
