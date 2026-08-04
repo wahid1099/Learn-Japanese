@@ -6,12 +6,13 @@ import { forwardRef } from 'react';
 type Variant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'gold';
 type Size = 'sm' | 'md' | 'lg' | 'xl';
 
-interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'size'> {
+interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'size' | 'children'> {
   variant?: Variant;
   size?: Size;
   block?: boolean;
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const VARIANT: Record<Variant, string> = {

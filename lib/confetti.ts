@@ -1,8 +1,8 @@
 'use client';
-import confetti from 'canvas-confetti';
+import confettiLib from 'canvas-confetti';
 
 export function confetti() {
-  confetti({
+  confettiLib({
     particleCount: 90,
     spread: 70,
     origin: { y: 0.6 },

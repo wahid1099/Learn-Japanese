@@ -97,7 +97,7 @@ function Inner({ mode, script, cards, onGrade, onSpeak }: {
             <Button onClick={() => window.location.assign(`/learn/${script === 'hira' ? 'hiragana' : 'katakana'}`)} iconRight={<ArrowRight className="w-4 h-4" />}>Back to path</Button>
           </div>
         </motion.div>
-        {pct >= 80 && confetti()}
+        {pct >= 80 && (confetti(), true)}
       </div>
     );
   }

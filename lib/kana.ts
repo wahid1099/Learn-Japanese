@@ -398,7 +398,7 @@ function build(script: 'hira'|'kata'): KanaSet {
       mnemonic, example,
       // Strokes: simplified — fall back to a single rect path; visual component
       // renders the actual glyph and uses this count for sequencing.
-      strokes: BASE[romaji]?.map(s => s.map(x => x.d).join('|').split('|')) ?? [ch],
+      strokes: BASE[romaji]?.map(s => s.map(x => x.d).join(' ')) ?? [ch],
     });
     byRomaji[romaji] = chars[chars.length - 1];
   }
