@@ -1,0 +1,12 @@
+{
+  "name": "Kanji no Mori — Learn Japanese",
+  "short_name": "Kanji no Mori",
+  "description": "Master Hiragana, Katakana, and Japanese grammar through a delightful, game-like experience.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfcf9",
+  "theme_color": "#f0303b",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
